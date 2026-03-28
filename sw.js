@@ -1,4 +1,4 @@
-const CACHE_NAME = 'green-edging-v1';
+const CACHE_NAME = 'green-edge-v3';
 const urlsToCache = [
   './',
 
