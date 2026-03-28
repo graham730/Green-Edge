@@ -35,137 +35,74 @@
 
         /* Password Screen */
         .lock-screen {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #0a3d0a 0%, #228B22 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
+            display: flex; align-items: center; justify-content: center; z-index: 9999;
         }
-
         .lock-card {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            width: 90%;
-            max-width: 360px;
-            text-align: center;
+            background: white; border-radius: 16px; padding: 2.5rem 2rem;
+            width: 90%; max-width: 360px; text-align: center;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
-
         .lock-icon { font-size: 52px; margin-bottom: 1rem; }
         .lock-title { font-size: 22px; font-weight: 700; color: #0a3d0a; margin-bottom: 0.3rem; }
         .lock-subtitle { font-size: 13px; color: #666; margin-bottom: 1.5rem; }
-
         .lock-input {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 0.8rem;
-            transition: border-color 0.3s;
+            width: 100%; padding: 14px; border: 2px solid #e0e0e0; border-radius: 8px;
+            font-size: 16px; text-align: center; margin-bottom: 0.8rem; transition: border-color 0.3s;
         }
-
         .lock-input:focus { outline: none; border-color: #228B22; }
         .lock-error { color: #E24B4A; font-size: 13px; margin-bottom: 0.8rem; display: none; }
-
         .lock-btn {
-            width: 100%;
-            padding: 14px;
-            background: #228B22;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.3s;
+            width: 100%; padding: 14px; background: #228B22; color: white;
+            border: none; border-radius: 8px; font-size: 16px; font-weight: 700;
+            cursor: pointer; transition: background 0.3s;
         }
-
         .lock-btn:hover { background: #1a6b1a; }
 
         /* Main App */
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
+        .app-container { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
         .header {
             background: linear-gradient(135deg, #0a3d0a 0%, var(--primary) 100%);
-            color: white;
-            padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            flex-shrink: 0;
+            color: white; padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); flex-shrink: 0;
         }
 
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
         .header-subtitle { font-size: 13px; opacity: 0.9; }
-
         .content { flex: 1; overflow-y: auto; padding: 1.5rem; }
 
         .card {
-            background: var(--surface);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s;
+            background: var(--surface); border-radius: 12px; padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 1.5rem; transition: all 0.3s;
         }
-
         .card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
 
         .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 18px; font-weight: 700; color: var(--text-primary);
+            margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 2rem; }
 
         .stat-box {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(34,139,34,0.2);
-            transition: all 0.3s;
+            color: white; padding: 1.5rem; border-radius: 12px; text-align: center;
+            box-shadow: 0 4px 12px rgba(34,139,34,0.2); transition: all 0.3s;
         }
-
         .stat-box:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(34,139,34,0.3); }
         .stat-value { font-size: 36px; font-weight: 700; margin-bottom: 0.5rem; }
         .stat-label { font-size: 13px; opacity: 0.9; font-weight: 600; }
 
         .job-item {
-            display: flex;
-            align-items: center;
-            padding: 1.2rem;
-            background: var(--bg);
-            border-radius: 10px;
-            margin-bottom: 0.8rem;
-            gap: 1rem;
-            transition: all 0.3s;
+            display: flex; align-items: center; padding: 1.2rem; background: var(--bg);
+            border-radius: 10px; margin-bottom: 0.8rem; gap: 1rem; transition: all 0.3s;
             border-left: 4px solid transparent;
         }
-
         .job-item:hover { background: rgba(34,139,34,0.05); border-left-color: var(--primary); }
-        .job-item.completed { opacity: 0.6; background: rgba(0,0,0,0.02); }
+        .job-item.completed { opacity: 1; background: rgba(76,175,80,0.1); border-left-color: #4CAF50; }
         .job-checkbox { width: 24px; height: 24px; cursor: pointer; accent-color: var(--primary); flex-shrink: 0; }
         .job-details { flex: 1; }
         .job-name { font-weight: 600; margin-bottom: 0.3rem; font-size: 15px; }
@@ -178,50 +115,19 @@
         .empty-state-text { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 
         .form-group { margin-bottom: 1.5rem; }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
 
         input, select {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: inherit;
-            color: var(--text-primary);
-            background: white;
-            transition: all 0.3s;
+            width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 8px;
+            font-size: 14px; font-family: inherit; color: var(--text-primary); background: white; transition: all 0.3s;
         }
-
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(34,139,34,0.1);
-        }
-
-        .input-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-        .input-row input { width: 100%; }
+        input:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(34,139,34,0.1); }
 
         .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
+            display: inline-block; padding: 12px 24px; background: var(--primary); color: white;
+            border: none; border-radius: 8px; font-size: 15px; font-weight: 700;
+            cursor: pointer; transition: all 0.3s; width: 100%;
         }
-
         .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(34,139,34,0.3); }
         .btn:active { transform: translateY(0); }
 
@@ -230,28 +136,16 @@
         .add-form button { width: 100%; padding: 12px 20px; }
 
         .share-box {
-            background: rgba(34,139,34,0.1);
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
+            background: rgba(34,139,34,0.1); border-left: 4px solid var(--primary);
+            padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;
         }
-
         .share-box-title { font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; font-size: 15px; }
         .share-box p { color: var(--text-secondary); font-size: 13px; margin-bottom: 1rem; line-height: 1.6; }
 
         .copy-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            transition: all 0.3s;
+            background: var(--primary); color: white; border: none; padding: 10px 16px;
+            border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;
         }
-
         .copy-btn:hover { background: var(--primary-dark); }
         .copy-btn.copied { background: var(--success); }
 
@@ -260,7 +154,6 @@
             .header h1 { font-size: 22px; }
             .content { padding: 1rem; }
             .stats-grid { grid-template-columns: 1fr; }
-            .input-row { grid-template-columns: 1fr; }
             .add-form { grid-template-columns: 1fr; }
         }
     </style>
@@ -280,8 +173,8 @@
     </div>
 </div>
 
-<!-- Main App (hidden until password entered) -->
-<div id="mainApp" style="display:none; height:100%;">
+<!-- Main App -->
+<div id="mainApp" style="display:none;height:100%;">
 <div class="app-container">
     <div class="header">
         <div class="header-content">
@@ -289,8 +182,8 @@
                 <h1>🌳 Green Edge</h1>
                 <div class="header-subtitle">Business Dashboard</div>
             </div>
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <button onclick="clearAllData()" style="background:#E24B4A;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.3s;">
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <button onclick="clearAllData()" style="background:#E24B4A;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;">
                     🗑️ Clear Data
                 </button>
                 <a href="index.html" style="color:white;text-decoration:none;font-size:13px;font-weight:600;opacity:0.9;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.9'">📅 Booking Page</a>
@@ -302,7 +195,7 @@
         <div class="share-box">
             <div class="share-box-title">📤 Share Your Booking Link</div>
             <p>Send this link to customers so they can book your services instantly.</p>
-            <div style="display: flex; gap: 0.5rem;">
+            <div style="display:flex;gap:0.5rem;">
                 <input type="text" id="bookingLinkInput" readonly style="flex:1;background:white;" />
                 <button class="copy-btn" onclick="copyBookingLink(this)">Copy</button>
             </div>
@@ -335,34 +228,13 @@
         <div class="card">
             <div class="card-title">⏰ Manage Your Availability</div>
             <div style="background:rgba(34,139,34,0.1);padding:1.5rem;border-radius:8px;">
-                <div style="font-weight:600;color:var(--text-primary);margin-bottom:1.5rem;font-size:15px;">What days can you work?</div>
-
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;">
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="mon" onchange="saveAvailability()" /><span style="font-weight:500;">Monday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="tue" onchange="saveAvailability()" /><span style="font-weight:500;">Tuesday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="wed" onchange="saveAvailability()" /><span style="font-weight:500;">Wednesday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="thu" onchange="saveAvailability()" /><span style="font-weight:500;">Thursday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="fri" onchange="saveAvailability()" /><span style="font-weight:500;">Friday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="sat" onchange="saveAvailability()" /><span style="font-weight:500;">Saturday</span>
-                    </label>
-                    <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;padding:10px;background:white;border-radius:6px;">
-                        <input type="checkbox" id="sun" onchange="saveAvailability()" /><span style="font-weight:500;">Sunday</span>
-                    </label>
+                <div style="font-weight:600;color:var(--text-primary);margin-bottom:1.5rem;font-size:15px;">Check the times you're available each day</div>
+                <div id="availabilityGrid" style="display:grid;gap:1.5rem;"></div>
+                <div id="availabilityDisplay" style="background:white;padding:1.2rem;border-radius:8px;text-align:center;font-weight:600;color:var(--primary);margin-top:1.5rem;">
+                    Select times above
                 </div>
-
-                <div id="availabilityDisplay" style="background:white;padding:1.2rem;border-radius:8px;text-align:center;font-weight:600;color:var(--primary);">
-                    Select days above
+                <div style="margin-top:1rem;padding:1rem;background:white;border-radius:8px;font-size:13px;color:var(--text-secondary);">
+                    <strong style="color:var(--text-primary);">💡 Tip:</strong> The times you check will automatically appear in the booking time dropdown for customers!
                 </div>
             </div>
         </div>
@@ -401,8 +273,7 @@
     const PASSWORD = '1211';
 
     function checkPassword() {
-        const val = document.getElementById('passwordInput').value;
-        if (val === PASSWORD) {
+        if (document.getElementById('passwordInput').value === PASSWORD) {
             document.getElementById('lockScreen').style.display = 'none';
             document.getElementById('mainApp').style.display = 'block';
             loadAll();
@@ -420,51 +291,101 @@
         'sb_publishable_24kTo4UpQH7zCmflixPstQ_CD1m8hYx'
     );
 
+    const TIMES = ['8:00 AM','9:00 AM','10:00 AM','11:00 AM','12:00 PM','1:00 PM','2:00 PM','3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM'];
+    const DAY_KEYS = ['mon','tue','wed','thu','fri','sat','sun'];
+    const DAY_NAMES = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
+
     let jobs = [];
     let bookings = [];
+    let schedule = {};
 
     async function loadAll() {
-        // Set booking link to real URL
-        const url = window.location.href.replace('dashboard.html', 'booking.html');
-        document.getElementById('bookingLinkInput').value = url;
+        document.getElementById('bookingLinkInput').value = window.location.href.replace('dashboard.html', 'index.html');
 
         const [{ data: jobsData }, { data: bookingsData }, { data: availData }] = await Promise.all([
             db.from('jobs').select('*').order('created_at', { ascending: false }),
             db.from('bookings').select('*').order('created_at', { ascending: false }),
-            db.from('availability').select('*').eq('id', 1).single()
+            db.from('availability').select('schedule').eq('id', 1).single()
         ]);
 
         jobs = jobsData || [];
         bookings = bookingsData || [];
+        schedule = availData?.schedule || {};
 
-        if (availData) {
-            ['mon','tue','wed','thu','fri','sat','sun'].forEach(d => {
-                document.getElementById(d).checked = availData[d] || false;
-            });
-            updateAvailabilityDisplay();
-        }
-
+        initializeAvailability();
         updateStats();
         renderJobs();
     }
 
-    async function saveAvailability() {
-        const days = {};
-        ['mon','tue','wed','thu','fri','sat','sun'].forEach(d => {
-            days[d] = document.getElementById(d).checked;
+    // ---- Availability ----
+    function initializeAvailability() {
+        const grid = document.getElementById('availabilityGrid');
+        grid.innerHTML = '';
+
+        DAY_KEYS.forEach(dayKey => {
+            const dayDiv = document.createElement('div');
+            dayDiv.style.cssText = 'background:white;padding:1.2rem;border-radius:8px;';
+
+            const title = document.createElement('div');
+            title.style.cssText = 'font-weight:700;color:var(--text-primary);margin-bottom:1rem;font-size:15px;';
+            title.textContent = DAY_NAMES[dayKey];
+            dayDiv.appendChild(title);
+
+            const timesGrid = document.createElement('div');
+            timesGrid.style.cssText = 'display:flex;flex-direction:column;gap:0.8rem;';
+
+            TIMES.forEach(time => {
+                const label = document.createElement('label');
+                label.style.cssText = 'display:flex;align-items:center;gap:0.8rem;cursor:pointer;font-size:14px;font-weight:500;';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.id = `${dayKey}-${time}`;
+                checkbox.onchange = saveAvailability;
+                checkbox.style.cssText = 'width:18px;height:18px;cursor:pointer;';
+                checkbox.checked = !!(schedule[dayKey] && schedule[dayKey][time]);
+
+                const span = document.createElement('span');
+                span.textContent = time;
+
+                label.appendChild(checkbox);
+                label.appendChild(span);
+                timesGrid.appendChild(label);
+            });
+
+            dayDiv.appendChild(timesGrid);
+            grid.appendChild(dayDiv);
         });
-        await db.from('availability').upsert({ id: 1, ...days });
+
+        grid.style.cssText = 'display:grid;grid-template-columns:repeat(7,1fr);gap:1rem;';
+        updateAvailabilityDisplay();
+    }
+
+    async function saveAvailability() {
+        schedule = {};
+        DAY_KEYS.forEach(dayKey => {
+            schedule[dayKey] = {};
+            TIMES.forEach(time => {
+                const cb = document.getElementById(`${dayKey}-${time}`);
+                if (cb && cb.checked) schedule[dayKey][time] = true;
+            });
+        });
+        await db.from('availability').upsert({ id: 1, schedule });
         updateAvailabilityDisplay();
     }
 
     function updateAvailabilityDisplay() {
-        const names = { mon:'Monday', tue:'Tuesday', wed:'Wednesday', thu:'Thursday', fri:'Friday', sat:'Saturday', sun:'Sunday' };
-        const selected = ['mon','tue','wed','thu','fri','sat','sun']
-            .filter(d => document.getElementById(d).checked)
-            .map(d => names[d]).join(', ');
-        document.getElementById('availabilityDisplay').innerHTML = selected
-            ? `<span style="color:var(--primary);font-weight:700;">✓ Available: ${selected}</span>`
-            : 'Select days above';
+        const display = document.getElementById('availabilityDisplay');
+        let summary = '';
+        DAY_KEYS.forEach(dayKey => {
+            const times = TIMES.filter(t => schedule[dayKey] && schedule[dayKey][t]);
+            if (times.length > 0) {
+                summary += `<div style="margin:0.5rem 0;"><strong>${DAY_NAMES[dayKey]}:</strong> ${times.join(', ')}</div>`;
+            }
+        });
+        display.innerHTML = summary
+            ? `<div style="color:var(--primary);font-weight:700;margin-bottom:0.5rem;">✓ Your Available Hours:</div>${summary}`
+            : 'Select times above';
     }
 
     function copyBookingLink(btn) {
@@ -476,14 +397,15 @@
         setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     }
 
+    // ---- Stats ----
     function updateStats() {
         const earned = jobs.reduce((sum, j) => sum + Number(j.amount), 0);
         const customers = new Set([
             ...jobs.map(j => j.name),
             ...bookings.map(b => b.first_name + ' ' + b.last_name)
         ]).size;
-        const completed = jobs.filter(j => j.completed).length;
-        const pending = jobs.filter(j => !j.completed).length + bookings.length;
+        const completed = jobs.filter(j => j.completed).length + bookings.filter(b => b.completed).length;
+        const pending = jobs.filter(j => !j.completed).length + bookings.filter(b => !b.completed).length;
 
         document.getElementById('totalEarnings').textContent = '$' + earned.toFixed(2);
         document.getElementById('totalCustomers').textContent = customers;
@@ -491,20 +413,22 @@
         document.getElementById('pendingJobs').textContent = pending;
     }
 
+    // ---- Jobs List ----
     function renderJobs() {
         const list = document.getElementById('jobsList');
         const serviceEmojis = { mowing:'🚜', weeding:'🌿', cleanup:'🧹', mulch:'🌱', snow:'❄️', other:'🔧' };
 
         const all = [
-            ...jobs,
+            ...jobs.map(j => ({ ...j, isBooking: false })),
             ...bookings.map(b => ({
                 id: b.id,
                 name: b.first_name + ' ' + b.last_name,
                 amount: 0,
                 date: b.date,
-                completed: false,
+                completed: b.completed || false,
                 isBooking: true,
-                service: b.service
+                service: b.service,
+                payment_method: b.payment_method
             }))
         ];
 
@@ -519,37 +443,41 @@
             div.className = 'job-item' + (item.completed ? ' completed' : '');
             const date = new Date(item.date).toLocaleDateString('en-US', { month:'short', day:'numeric' });
             const emoji = item.service ? (serviceEmojis[item.service] + ' ') : '';
+            const payBadge = item.payment_method ? (item.payment_method === 'cash' ? ' 💵' : ' 📱') : '';
 
             div.innerHTML = `
                 <input type="checkbox" class="job-checkbox" ${item.completed ? 'checked' : ''}
-                    onchange="toggleJob(${item.id}, ${item.isBooking || false})" />
+                    onchange="toggleJob(${item.id}, ${item.isBooking})" />
                 <div class="job-details">
                     <div class="job-name">${item.name}</div>
-                    <div class="job-date">${emoji}${date}${item.isBooking ? ' <span style="background:#228B22;color:white;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">NEW BOOKING</span>' : ''}</div>
+                    <div class="job-date">${emoji}${date}${item.isBooking ? ' <span style="background:#228B22;color:white;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">BOOKING</span>' : ''}${payBadge}</div>
                 </div>
                 ${item.amount > 0 ? `<div class="job-amount">$${Number(item.amount).toFixed(2)}</div>` : '<div class="job-amount" style="color:var(--text-secondary);font-size:13px;">-</div>'}
+                ${item.completed ? `<div style="background:#4CAF50;color:white;padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;white-space:nowrap;">✓ DONE</div>` : ''}
             `;
             list.appendChild(div);
         });
     }
 
     async function toggleJob(id, isBooking) {
-        if (isBooking) return;
-        const job = jobs.find(j => j.id === id);
-        if (!job) return;
-        const { error } = await db.from('jobs').update({ completed: !job.completed }).eq('id', id);
-        if (!error) {
-            job.completed = !job.completed;
-            updateStats();
-            renderJobs();
+        if (isBooking) {
+            const b = bookings.find(b => b.id === id);
+            if (!b) return;
+            const { error } = await db.from('bookings').update({ completed: !b.completed }).eq('id', id);
+            if (!error) { b.completed = !b.completed; updateStats(); renderJobs(); }
+        } else {
+            const j = jobs.find(j => j.id === id);
+            if (!j) return;
+            const { error } = await db.from('jobs').update({ completed: !j.completed }).eq('id', id);
+            if (!error) { j.completed = !j.completed; updateStats(); renderJobs(); }
         }
     }
 
     async function handleAddJob(e) {
         e.preventDefault();
-        const name = document.getElementById('customerName').value;
+        const name   = document.getElementById('customerName').value;
         const amount = parseFloat(document.getElementById('jobAmount').value);
-        const date = document.getElementById('jobDate').value;
+        const date   = document.getElementById('jobDate').value;
 
         const { data, error } = await db.from('jobs').insert({ name, amount, date, completed: false }).select().single();
         if (!error && data) {
@@ -568,14 +496,12 @@
             db.from('jobs').delete().neq('id', 0),
             db.from('bookings').delete().neq('id', 0)
         ]);
-        jobs = [];
-        bookings = [];
-        updateStats();
-        renderJobs();
+        jobs = []; bookings = [];
+        updateStats(); renderJobs();
         alert('✓ All data cleared!');
     }
 
-    // Auto-refresh every 30 seconds to catch new bookings
+    // Auto-refresh every 30 seconds
     setInterval(() => {
         if (document.getElementById('mainApp').style.display !== 'none') loadAll();
     }, 30000);

@@ -11,11 +11,7 @@
     <meta name="apple-mobile-web-app-title" content="Green Edge">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #228B22;
@@ -29,10 +25,7 @@
             --success: #4CAF50;
         }
 
-        html, body {
-            width: 100%;
-            height: 100%;
-        }
+        html, body { width: 100%; height: 100%; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -40,12 +33,7 @@
             color: var(--text-primary);
         }
 
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
+        .app-container { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
 
         .header {
             background: linear-gradient(135deg, #0a3d0a 0%, var(--primary) 100%);
@@ -55,28 +43,10 @@
             flex-shrink: 0;
         }
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .header-subtitle {
-            font-size: 13px;
-            opacity: 0.9;
-        }
-
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 0.3rem; }
+        .header-subtitle { font-size: 13px; opacity: 0.9; }
+        .content { flex: 1; overflow-y: auto; padding: 1.5rem; }
 
         .card {
             background: var(--surface);
@@ -87,47 +57,13 @@
             transition: all 0.3s;
         }
 
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .card-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .progress-bar {
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 2px;
-            transition: width 0.3s;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .required {
-            color: #E24B4A;
-        }
+        .card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .card-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 1.5rem; }
+        .progress-bar { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.5rem; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); border-radius: 2px; transition: width 0.3s; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .required { color: #E24B4A; }
 
         input, select, textarea {
             width: 100%;
@@ -147,27 +83,10 @@
             box-shadow: 0 0 0 3px rgba(34, 139, 34, 0.1);
         }
 
-        textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .input-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .input-row input {
-            width: 100%;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
+        textarea { resize: vertical; min-height: 100px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .input-row input { width: 100%; }
+        .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
 
         .service-btn {
             padding: 16px 12px;
@@ -186,20 +105,29 @@
             gap: 0.5rem;
         }
 
-        .service-emoji {
-            font-size: 28px;
+        .service-emoji { font-size: 28px; }
+        .service-btn:hover { border-color: var(--primary); background: rgba(34, 139, 34, 0.05); }
+        .service-btn.selected { border-color: var(--primary); background: var(--primary); color: white; }
+
+        .payment-btn {
+            padding: 16px 12px;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            color: var(--text-primary);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .service-btn:hover {
-            border-color: var(--primary);
-            background: rgba(34, 139, 34, 0.05);
-        }
-
-        .service-btn.selected {
-            border-color: var(--primary);
-            background: var(--primary);
-            color: white;
-        }
+        .payment-btn:hover { border-color: var(--primary); background: rgba(34, 139, 34, 0.05); }
+        .payment-btn.selected { border-color: var(--primary); background: var(--primary); color: white; }
 
         .btn {
             display: inline-block;
@@ -215,21 +143,9 @@
             width: 100%;
         }
 
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(34, 139, 34, 0.3);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(34, 139, 34, 0.3); }
+        .btn:active { transform: translateY(0); }
+        .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
         .success-message {
             background: rgba(76, 175, 80, 0.15);
@@ -241,37 +157,17 @@
             text-align: center;
         }
 
-        .success-message.show {
-            display: block;
-            animation: slideIn 0.3s ease-out;
-        }
+        .success-message.show { display: block; animation: slideIn 0.3s ease-out; }
 
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .success-icon {
-            font-size: 36px;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .success-title {
-            color: var(--success);
-            font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 0.5rem;
-        }
-
-        .success-text {
-            color: var(--text-secondary);
-            font-size: 14px;
-        }
-
-        .form-wrapper.hidden {
-            display: none;
-        }
+        .success-icon { font-size: 36px; display: block; margin-bottom: 0.5rem; }
+        .success-title { color: var(--success); font-weight: 700; font-size: 18px; margin-bottom: 0.5rem; }
+        .success-text { color: var(--text-secondary); font-size: 14px; }
+        .form-wrapper.hidden { display: none; }
 
         @media (max-width: 600px) {
             .header { padding: 1rem; }
@@ -293,14 +189,42 @@
                 <h1>🌳 Green Edge</h1>
                 <div class="header-subtitle">Book Your Service</div>
             </div>
-            <div style="text-align: right;">
-                <div style="font-size: 13px; opacity: 0.9;">Owner</div>
-                <div style="font-size: 16px; font-weight: 700;">Graham Arkell</div>
+            <div style="display:flex;align-items:center;gap:1.5rem;">
+                <button onclick="openFindBooking()" style="background:rgba(255,255,255,0.2);color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;font-weight:600;font-size:13px;transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                    🔍 Find Booking
+                </button>
+                <div style="text-align:right;">
+                    <div style="font-size:13px;opacity:0.9;">Owner</div>
+                    <div style="font-size:16px;font-weight:700;">Graham Arkell</div>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="content">
+
+        <!-- Find Booking Modal -->
+        <div id="findBookingModal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:center;">
+            <div style="background:white;border-radius:12px;padding:2rem;max-width:400px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+                <div style="font-size:28px;margin-bottom:1rem;text-align:center;">🔍</div>
+                <h2 style="text-align:center;color:var(--text-primary);margin-bottom:1.5rem;font-size:20px;">Find Your Booking</h2>
+                <div class="form-group">
+                    <label class="form-label">First Name</label>
+                    <input type="text" id="findFirstName" placeholder="Enter your first name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" id="findLastName" placeholder="Enter your last name" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" id="findPhone" placeholder="Enter your phone number" />
+                </div>
+                <button onclick="searchBooking()" style="width:100%;padding:12px;background:var(--primary);color:white;border:none;border-radius:8px;font-weight:700;cursor:pointer;margin-bottom:0.5rem;transition:all 0.3s;" onmouseover="this.style.background='var(--primary-dark)'" onmouseout="this.style.background='var(--primary)'">Search</button>
+                <button onclick="closeFindBooking()" style="width:100%;padding:12px;background:var(--bg);color:var(--text-primary);border:2px solid var(--border);border-radius:8px;font-weight:700;cursor:pointer;">Close</button>
+            </div>
+        </div>
+
         <div class="success-message" id="successMessage">
             <div class="success-icon">✓</div>
             <div class="success-title">Booking Confirmed!</div>
@@ -308,15 +232,14 @@
         </div>
 
         <div class="progress-bar">
-            <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+            <div class="progress-fill" id="progressFill" style="width:0%;"></div>
         </div>
 
         <div class="form-wrapper" id="formWrapper">
             <form id="bookingForm" onsubmit="handleSubmit(event)">
-                <!-- Contact Info -->
+
                 <div class="card">
                     <div class="card-title">👤 Your Information</div>
-
                     <div class="input-row">
                         <div class="form-group">
                             <label class="form-label">First Name <span class="required">*</span></label>
@@ -327,68 +250,55 @@
                             <input type="text" id="lastName" required onchange="updateProgress()" />
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="form-label">Email <span class="required">*</span></label>
                         <input type="email" id="email" required onchange="updateProgress()" />
                     </div>
-
                     <div class="form-group">
                         <label class="form-label">Phone <span class="required">*</span></label>
                         <input type="tel" id="phone" required onchange="updateProgress()" />
                     </div>
                 </div>
 
-                <!-- Service Selection -->
                 <div class="card">
                     <div class="card-title">🛠️ Service Type <span class="required">*</span></div>
-
                     <div class="service-grid">
                         <button type="button" class="service-btn" data-service="mowing" onclick="selectService(event)">
-                            <div class="service-emoji">🚜</div>
-                            <span>Lawn Mowing</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">$40-60</div>
+                            <div class="service-emoji">🚜</div><span>Lawn Mowing</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">$40-60</div>
                         </button>
                         <button type="button" class="service-btn" data-service="weeding" onclick="selectService(event)">
-                            <div class="service-emoji">🌿</div>
-                            <span>Weeding</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">$35-50</div>
+                            <div class="service-emoji">🌿</div><span>Weeding</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">$35-50</div>
                         </button>
                         <button type="button" class="service-btn" data-service="cleanup" onclick="selectService(event)">
-                            <div class="service-emoji">🧹</div>
-                            <span>Yard Cleanup</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">$45-75</div>
+                            <div class="service-emoji">🧹</div><span>Yard Cleanup</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">$45-75</div>
                         </button>
                         <button type="button" class="service-btn" data-service="mulch" onclick="selectService(event)">
-                            <div class="service-emoji">🌱</div>
-                            <span>Landscaping</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">$60-100</div>
+                            <div class="service-emoji">🌱</div><span>Landscaping</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">$60-100</div>
                         </button>
                         <button type="button" class="service-btn" data-service="snow" onclick="selectService(event)">
-                            <div class="service-emoji">❄️</div>
-                            <span>Snow Blowing</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">$50-85</div>
+                            <div class="service-emoji">❄️</div><span>Snow Blowing</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">$50-85</div>
                         </button>
                         <button type="button" class="service-btn" data-service="other" onclick="selectService(event)">
-                            <div class="service-emoji">🔧</div>
-                            <span>Other</span>
-                            <div style="font-size: 12px; opacity: 0.8; margin-top: 0.3rem;">Call for quote</div>
+                            <div class="service-emoji">🔧</div><span>Other</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Call for quote</div>
                         </button>
                     </div>
                     <input type="hidden" id="service" required />
                 </div>
 
-                <!-- Date & Time -->
                 <div class="card">
                     <div class="card-title">📅 When & Where</div>
-
-                    <div style="background: rgba(34, 139, 34, 0.1); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
-                        <div style="font-weight: 600; color: var(--text-primary); margin-bottom: 1rem; font-size: 15px;">My Available Days</div>
-                        <div id="availabilityChart" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div style="grid-column: 1/-1; text-align: center; padding: 1rem; color: var(--text-secondary); font-size: 14px;">Loading availability...</div>
+                    <div style="background:rgba(34,139,34,0.1);padding:1.5rem;border-radius:8px;margin-bottom:1.5rem;">
+                        <div style="font-weight:600;color:var(--text-primary);margin-bottom:1rem;font-size:15px;">My Available Days & Times</div>
+                        <div id="availabilityChart" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                            <div style="grid-column:1/-1;text-align:center;padding:1rem;color:var(--text-secondary);font-size:14px;">Loading availability...</div>
                         </div>
                     </div>
-
                     <div class="input-row">
                         <div class="form-group">
                             <label class="form-label">Date <span class="required">*</span></label>
@@ -397,26 +307,14 @@
                         <div class="form-group">
                             <label class="form-label">Time <span class="required">*</span></label>
                             <select id="time" required onchange="updateProgress()">
-                                <option value="">Select time</option>
-                                <option value="8:00 AM">8:00 AM</option>
-                                <option value="9:00 AM">9:00 AM</option>
-                                <option value="10:00 AM">10:00 AM</option>
-                                <option value="11:00 AM">11:00 AM</option>
-                                <option value="12:00 PM">12:00 PM</option>
-                                <option value="1:00 PM">1:00 PM</option>
-                                <option value="2:00 PM">2:00 PM</option>
-                                <option value="3:00 PM">3:00 PM</option>
-                                <option value="4:00 PM">4:00 PM</option>
-                                <option value="5:00 PM">5:00 PM</option>
+                                <option value="">Select a day first</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="form-label">Address <span class="required">*</span></label>
                         <input type="text" id="address" required onchange="updateProgress()" />
                     </div>
-
                     <div class="input-row">
                         <div class="form-group">
                             <label class="form-label">City <span class="required">*</span></label>
@@ -429,10 +327,25 @@
                     </div>
                 </div>
 
-                <!-- Special Requests -->
+                <div class="card">
+                    <div class="card-title">💰 Payment Method</div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                        <button type="button" class="payment-btn" data-payment="cash" onclick="selectPayment(event)">
+                            <div style="font-size:32px;margin-bottom:0.5rem;">💵</div>
+                            <span>Cash</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Pay on the spot</div>
+                        </button>
+                        <button type="button" class="payment-btn" data-payment="venmo" onclick="selectPayment(event)">
+                            <div style="font-size:32px;margin-bottom:0.5rem;">📱</div>
+                            <span>Venmo</span>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Pay via app</div>
+                        </button>
+                    </div>
+                    <input type="hidden" id="paymentMethod" required />
+                </div>
+
                 <div class="card">
                     <div class="card-title">📝 Special Requests</div>
-
                     <div class="form-group">
                         <label class="form-label">Any Special Instructions? (Optional)</label>
                         <textarea id="requests" placeholder="Let us know if you have any special needs..."></textarea>
@@ -450,36 +363,111 @@
         navigator.serviceWorker.register('sw.js').catch(() => {});
     }
 
-    // Connect to Supabase
     const { createClient } = supabase;
     const db = createClient(
         'https://iujjlprqustziucnhcdj.supabase.co',
         'sb_publishable_24kTo4UpQH7zCmflixPstQ_CD1m8hYx'
     );
 
-    // Load availability days from database
-    async function loadAndDisplayAvailability() {
-        const { data, error } = await db.from('availability').select('*').eq('id', 1).single();
-        const chart = document.getElementById('availabilityChart');
-        chart.innerHTML = '';
+    let availability = {};
 
-        if (error || !data) {
-            chart.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:1rem;color:var(--text-secondary);font-size:14px;">Contact Graham to check his available days!</div>';
+    // ---- Find Booking ----
+    function openFindBooking() {
+        document.getElementById('findBookingModal').style.display = 'flex';
+    }
+
+    function closeFindBooking() {
+        document.getElementById('findBookingModal').style.display = 'none';
+        document.getElementById('findFirstName').value = '';
+        document.getElementById('findLastName').value = '';
+        document.getElementById('findPhone').value = '';
+    }
+
+    async function searchBooking() {
+        const firstName = document.getElementById('findFirstName').value.trim();
+        const lastName  = document.getElementById('findLastName').value.trim();
+        const phone     = document.getElementById('findPhone').value.trim();
+
+        if (!firstName || !lastName || !phone) {
+            alert('Please fill in all fields');
             return;
         }
+
+        const { data, error } = await db.from('bookings')
+            .select('*')
+            .ilike('first_name', firstName)
+            .ilike('last_name', lastName)
+            .eq('phone', phone)
+            .limit(1)
+            .single();
+
+        if (error || !data) {
+            alert('Booking not found. Please check your information.');
+            return;
+        }
+
+        showFoundBooking(data);
+        closeFindBooking();
+    }
+
+    function showFoundBooking(booking) {
+        const serviceEmojis = { mowing:'🚜', weeding:'🌿', cleanup:'🧹', mulch:'🌱', snow:'❄️', other:'🔧' };
+        const emoji = serviceEmojis[booking.service] || '📅';
+        const bookingDate = new Date(booking.date).toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
+
+        const modal = document.createElement('div');
+        modal.id = 'bookingDetailsModal';
+        modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:1000;display:flex;justify-content:center;align-items:center;';
+        modal.innerHTML = `
+            <div style="background:white;border-radius:12px;padding:2rem;max-width:500px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+                <h2 style="text-align:center;color:var(--text-primary);margin-bottom:1.5rem;">Your Booking Details</h2>
+                <div style="background:var(--bg);padding:1.5rem;border-radius:8px;margin-bottom:1.5rem;">
+                    <div style="font-weight:700;font-size:18px;color:var(--text-primary);margin-bottom:0.5rem;">${emoji} ${booking.service.charAt(0).toUpperCase() + booking.service.slice(1)}</div>
+                    <div style="color:var(--text-secondary);font-size:14px;margin-bottom:0.3rem;">📅 ${bookingDate}</div>
+                    <div style="color:var(--text-secondary);font-size:14px;margin-bottom:0.3rem;">🕐 ${booking.time}</div>
+                    <div style="color:var(--text-secondary);font-size:14px;margin-bottom:0.3rem;">📍 ${booking.address}, ${booking.city}, ${booking.zip}</div>
+                    <div style="color:var(--text-secondary);font-size:14px;">💰 Payment: ${booking.payment_method === 'cash' ? '💵 Cash' : '📱 Venmo'}</div>
+                </div>
+                <button onclick="deleteFoundBooking(${booking.id})" style="width:100%;padding:12px;background:#E24B4A;color:white;border:none;border-radius:8px;font-weight:700;cursor:pointer;margin-bottom:0.5rem;" onmouseover="this.style.background='#c93a39'" onmouseout="this.style.background='#E24B4A'">🗑️ Cancel Booking</button>
+                <button onclick="closeBookingDetails()" style="width:100%;padding:12px;background:var(--bg);color:var(--text-primary);border:2px solid var(--border);border-radius:8px;font-weight:700;cursor:pointer;">Close</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    function closeBookingDetails() {
+        const modal = document.getElementById('bookingDetailsModal');
+        if (modal) modal.remove();
+    }
+
+    async function deleteFoundBooking(id) {
+        if (!confirm('Are you sure you want to cancel this booking?')) return;
+        await db.from('bookings').delete().eq('id', id);
+        closeBookingDetails();
+        alert('✓ Your booking has been cancelled.');
+    }
+
+    // ---- Availability ----
+    async function loadAndDisplayAvailability() {
+        const { data } = await db.from('availability').select('schedule').eq('id', 1).single();
+        availability = data?.schedule || {};
+
+        const chart = document.getElementById('availabilityChart');
+        chart.innerHTML = '';
 
         const days = ['mon','tue','wed','thu','fri','sat','sun'];
         const labels = { mon:'Mon', tue:'Tue', wed:'Wed', thu:'Thu', fri:'Fri', sat:'Sat', sun:'Sun' };
         const emojis = { mon:'🌅', tue:'📅', wed:'⚙️', thu:'🎯', fri:'🎉', sat:'⭐', sun:'😴' };
-        let any = false;
 
+        let any = false;
         days.forEach(day => {
-            if (data[day]) {
+            const times = availability[day] ? Object.keys(availability[day]).filter(t => availability[day][t]) : [];
+            if (times.length > 0) {
                 any = true;
                 const btn = document.createElement('button');
                 btn.type = 'button';
                 btn.style.cssText = 'padding:1rem;border:2px solid var(--primary);background:rgba(34,139,34,0.1);border-radius:8px;cursor:pointer;font-weight:600;color:var(--text-primary);transition:all 0.3s;text-align:center;';
-                btn.innerHTML = `<div style="font-size:18px;margin-bottom:0.5rem;">${emojis[day]}</div><div style="font-size:15px;font-weight:700;margin-bottom:0.3rem;">${labels[day]}</div><div style="font-size:12px;opacity:0.8;">Available</div>`;
+                btn.innerHTML = `<div style="font-size:18px;margin-bottom:0.5rem;">${emojis[day]}</div><div style="font-size:15px;font-weight:700;margin-bottom:0.3rem;">${labels[day]}</div><div style="font-size:12px;opacity:0.8;">${times.length} time slot${times.length > 1 ? 's' : ''}</div>`;
                 btn.onmouseover = () => { btn.style.background='rgba(34,139,34,0.2)'; btn.style.transform='translateY(-2px)'; };
                 btn.onmouseout = () => { btn.style.background='rgba(34,139,34,0.1)'; btn.style.transform='translateY(0)'; };
                 btn.onclick = (e) => { e.preventDefault(); selectAvailableDay(day); };
@@ -488,7 +476,7 @@
         });
 
         if (!any) {
-            chart.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:1rem;color:var(--text-secondary);font-size:14px;">Contact Graham to check his available days!</div>';
+            chart.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:1rem;color:var(--text-secondary);font-size:14px;">Contact Graham to check his available times!</div>';
         }
     }
 
@@ -500,17 +488,43 @@
         const next = new Date(today);
         next.setDate(next.getDate() + daysAhead);
         document.getElementById('date').value = next.toISOString().split('T')[0];
+        updateTimeDropdown(day);
         setTimeout(() => {
             document.getElementById('time').focus();
             document.getElementById('time').scrollIntoView({ behavior: 'smooth' });
         }, 100);
     }
 
+    function updateTimeDropdown(day) {
+        const timeSelect = document.getElementById('time');
+        const times = availability[day] ? Object.keys(availability[day]).filter(t => availability[day][t]) : [];
+        timeSelect.innerHTML = '<option value="">Select time</option>';
+        if (times.length === 0) {
+            timeSelect.innerHTML += '<option disabled>No times available this day</option>';
+            return;
+        }
+        times.forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t;
+            opt.textContent = t;
+            timeSelect.appendChild(opt);
+        });
+    }
+
+    // ---- Form ----
     function selectService(e) {
         e.preventDefault();
         document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
         e.target.closest('.service-btn').classList.add('selected');
         document.getElementById('service').value = e.target.closest('.service-btn').dataset.service;
+        updateProgress();
+    }
+
+    function selectPayment(e) {
+        e.preventDefault();
+        document.querySelectorAll('.payment-btn').forEach(b => b.classList.remove('selected'));
+        e.target.closest('.payment-btn').classList.add('selected');
+        document.getElementById('paymentMethod').value = e.target.closest('.payment-btn').dataset.payment;
         updateProgress();
     }
 
@@ -523,23 +537,23 @@
 
     async function handleSubmit(e) {
         e.preventDefault();
-
         const btn = document.getElementById('submitBtn');
         btn.textContent = 'Booking...';
         btn.disabled = true;
 
         const { error } = await db.from('bookings').insert({
-            first_name: document.getElementById('firstName').value,
-            last_name:  document.getElementById('lastName').value,
-            email:      document.getElementById('email').value,
-            phone:      document.getElementById('phone').value,
-            service:    document.getElementById('service').value,
-            date:       document.getElementById('date').value,
-            time:       document.getElementById('time').value,
-            address:    document.getElementById('address').value,
-            city:       document.getElementById('city').value,
-            zip:        document.getElementById('zip').value,
-            requests:   document.getElementById('requests').value
+            first_name:     document.getElementById('firstName').value,
+            last_name:      document.getElementById('lastName').value,
+            email:          document.getElementById('email').value,
+            phone:          document.getElementById('phone').value,
+            service:        document.getElementById('service').value,
+            date:           document.getElementById('date').value,
+            time:           document.getElementById('time').value,
+            address:        document.getElementById('address').value,
+            city:           document.getElementById('city').value,
+            zip:            document.getElementById('zip').value,
+            payment_method: document.getElementById('paymentMethod').value,
+            requests:       document.getElementById('requests').value
         });
 
         btn.textContent = '✓ Complete Booking';
@@ -558,8 +572,9 @@
             document.getElementById('bookingForm').reset();
             document.getElementById('formWrapper').classList.remove('hidden');
             document.getElementById('successMessage').classList.remove('show');
-            document.querySelectorAll('.service-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.service-btn, .payment-btn').forEach(b => b.classList.remove('selected'));
             document.getElementById('service').value = '';
+            document.getElementById('paymentMethod').value = '';
             document.getElementById('progressFill').style.width = '0%';
         }, 2500);
     }
