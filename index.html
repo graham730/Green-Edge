@@ -305,7 +305,7 @@
                             <input type="date" id="date" required onchange="updateProgress()" />
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Time <span class="required">*</span></label>
+                            <label class="form-label">Start Time <span class="required">*</span></label>
                             <select id="time" required onchange="updateProgress()">
                                 <option value="">Select a day first</option>
                             </select>
@@ -333,15 +333,35 @@
                         <button type="button" class="payment-btn" data-payment="cash" onclick="selectPayment(event)">
                             <div style="font-size:32px;margin-bottom:0.5rem;">💵</div>
                             <span>Cash</span>
-                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Pay on the spot</div>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Due upon completion</div>
                         </button>
                         <button type="button" class="payment-btn" data-payment="venmo" onclick="selectPayment(event)">
                             <div style="font-size:32px;margin-bottom:0.5rem;">📱</div>
                             <span>Venmo</span>
-                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Pay via app</div>
+                            <div style="font-size:12px;opacity:0.8;margin-top:0.3rem;">Due upon completion</div>
                         </button>
                     </div>
+                    <div style="margin-top:1rem;padding:0.8rem;background:rgba(34,139,34,0.08);border-radius:8px;font-size:13px;color:var(--text-secondary);text-align:center;">
+                        💡 Payment is due upon work completion
+                    </div>
                     <input type="hidden" id="paymentMethod" required />
+                </div>
+
+                <div class="card">
+                    <div class="card-title">⏱️ Estimated Work Hours</div>
+                    <div class="form-group">
+                        <label class="form-label">Estimated Hours Needed <span class="required">*</span></label>
+                        <select id="estimatedHours" required onchange="updateProgress()">
+                            <option value="">Select estimated hours</option>
+                            <option value="0.5">30 minutes</option>
+                            <option value="1">1 hour</option>
+                            <option value="1.5">1.5 hours</option>
+                            <option value="2">2 hours</option>
+                            <option value="3">3 hours</option>
+                            <option value="4">4 hours</option>
+                            <option value="5+">5+ hours</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="card">
@@ -552,8 +572,9 @@
             address:        document.getElementById('address').value,
             city:           document.getElementById('city').value,
             zip:            document.getElementById('zip').value,
-            payment_method: document.getElementById('paymentMethod').value,
-            requests:       document.getElementById('requests').value
+            payment_method:   document.getElementById('paymentMethod').value,
+            estimated_hours:  document.getElementById('estimatedHours').value,
+            requests:         document.getElementById('requests').value
         });
 
         btn.textContent = '✓ Complete Booking';
@@ -575,6 +596,7 @@
             document.querySelectorAll('.service-btn, .payment-btn').forEach(b => b.classList.remove('selected'));
             document.getElementById('service').value = '';
             document.getElementById('paymentMethod').value = '';
+            document.getElementById('estimatedHours').value = '';
             document.getElementById('progressFill').style.width = '0%';
         }, 2500);
     }
